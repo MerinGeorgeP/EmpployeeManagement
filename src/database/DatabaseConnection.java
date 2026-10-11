@@ -13,43 +13,32 @@ public class DatabaseConnection {
 
     private static final String PASSWORD = "";
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
 
-        try {
-            Connection connection = DriverManager.getConnection(
-                    URL,
-                    USER,
-                    PASSWORD
-            );
-
-            System.out.println("Database connected successfully!");
-
-            return connection;
-
-        } catch (SQLException e) {
-
-            System.out.println("Database connection failed!");
-
-            e.printStackTrace();
-
-            return null;
-        }
+        return DriverManager.getConnection(
+                URL,
+                USER,
+                PASSWORD
+        );
     }
 
     public static void main(String[] args) {
 
-        Connection connection = getConnection();
+        try (Connection connection = getConnection()) {
 
-        if (connection != null) {
+            System.out.println("MySQL connected successfully!");
 
-            try {
-                connection.close();
+            System.out.println(
+                    "Connected database: " + connection.getCatalog()
+            );
 
-                System.out.println("Connection closed.");
+        } catch (SQLException e) {
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            System.out.println("MySQL connection failed!");
+
+            System.out.println(e.getMessage());
+
+            e.printStackTrace();
         }
     }
 }
