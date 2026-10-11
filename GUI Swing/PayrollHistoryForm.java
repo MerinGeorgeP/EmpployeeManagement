@@ -1,5 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.*;
+
+import database.DatabaseConnection;
+
 import java.awt.*;
 import java.sql.*;
 

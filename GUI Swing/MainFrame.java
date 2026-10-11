@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 public class MainFrame extends JFrame {
     public MainFrame(){
         super("Employee Payroll Management System");
@@ -23,16 +23,13 @@ public class MainFrame extends JFrame {
             JButton b=new JButton(label);
             b.setFont(new Font("SansSerif",Font.BOLD,17));
             b.setBackground(new Color(40,110,190));
-            b.setForeground(Color.WHITE); menu.add(b);
+            b.setForeground(Color.BLUE); menu.add(b);
             b.addActionListener(e->{ 
                 switch(label){
-                    case "Employee Management":new EmployeeForm(this).setVisible(true);
-                        break;
-                    case "Attendance":new AttendanceForm(this).setVisible(true);
-                        break;
-                    case "Generate Payroll":new PayrollForm(this).setVisible(true);
-                        break;
-                    default:new PayrollHistoryForm(this).setVisible(true);
+                    case "Employee Management" -> new EmployeeForm(this).setVisible(true);
+                    case "Attendance" -> new AttendanceForm(this).setVisible(true);
+                    case "Generate Payroll" -> new PayrollForm(this).setVisible(true);
+                    default -> new PayrollHistoryForm(this).setVisible(true);
                 }
             });
         }

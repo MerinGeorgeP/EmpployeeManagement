@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import database.DatabaseConnection;
+
 import java.awt.*;
 import java.sql.*;
 import java.math.BigDecimal;
