@@ -125,3 +125,4 @@ public class Attendance {
             throw new Exception("Present + leave days cannot be more than working days.");
         }
     }
+}
